@@ -34,7 +34,7 @@ n03:
 
 # 市区町村役場データ
 # https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P34.html
-download-p34:
+download-P34:
 	mkdir -p $(DOWNLOAD)
 	cd $(DOWNLOAD) && curl -O https://nlftp.mlit.go.jp/ksj/gml/data/P34/P34-14/P34-14_01_GML.zip	
 	cd $(DOWNLOAD) && curl -O https://nlftp.mlit.go.jp/ksj/gml/data/P34/P34-14/P34-14_02_GML.zip	
@@ -88,5 +88,8 @@ unzip-P34:
 	unzip -d tmp "download/*.zip"
 
 import-P34:
-	find tmp -name "*.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p34
+	find tmp -name "*.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p34
 
+normalize-P34:
+	psql -h localhost -U postgres geomdb -f normalize-p34.sql
+	ogr2ogr -f GeoJSON $(TMP)/normalized_p34.geojson PG:"host=localhost dbname=geomdb user=postgres" "normalized_p34"
