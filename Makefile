@@ -83,3 +83,10 @@ download-p34:
 	cd $(DOWNLOAD) && curl -O https://nlftp.mlit.go.jp/ksj/gml/data/P34/P34-14/P34-14_45_GML.zip	
 	cd $(DOWNLOAD) && curl -O https://nlftp.mlit.go.jp/ksj/gml/data/P34/P34-14/P34-14_46_GML.zip	
 	cd $(DOWNLOAD) && curl -O https://nlftp.mlit.go.jp/ksj/gml/data/P34/P34-14/P34-14_47_GML.zip
+
+unzip-P34:
+	unzip -d tmp "download/*.zip"
+
+import-P34:
+	find tmp -name "*.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p34
+
