@@ -373,6 +373,55 @@ download-P18:
 unzip-P18:
 	mkdir -p $(TMP)/P18
 	unzip -d $(TMP)/P18 "$(DOWNLOAD)/P18/*.zip"
+shapefile2geojson-P18:
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres"         tmp/P18/P18-12_01_PoliceStation.shp -nln p18 -lco PRECISION=NO -lco "COLUMN_TYPES=p17_001=VARCHAR(255)"
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_02_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_03_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_04_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_05_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_06_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_07_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_08_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_09_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_10_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_11_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_12_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_13_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_14_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_15_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_16_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_17_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_18_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_19_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_20_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_21_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_22_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_23_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_24_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_25_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_26_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_27_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_28_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_29_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_30_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_31_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_32_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_33_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_34_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_35_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_36_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_37_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_38_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_39_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_40_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_41_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_42_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_43_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_44_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_45_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_46_PoliceStation.shp -nln p18
+	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append tmp/P18/P18-12_47_PoliceStation.shp -nln p18
+	ogr2ogr -f GeoJSON $(TMP)/P18-12_all_PoliceStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p18
 
 # 消防署
 # https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P17.html
