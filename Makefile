@@ -223,7 +223,7 @@ unzip-P20:
 	unzip -d $(TMP)/P20 "$(DOWNLOAD)/P20/*.zip"
 shapefile2geojson-P20:
 	- psql -U postgres -d geomdb -c "DROP TABLE p20;"
-	find $(TMP)/P20 -name "P20-??_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p20
+	find $(TMP)/P20 -name "P20-12_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p20
 	ogr2ogr -f GeoJSON $(TMP)/P20-12_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p20
 
 
@@ -355,7 +355,7 @@ unzip-P21:
 	unzip -d $(TMP)/P21 "$(DOWNLOAD)/P21/*.zip"
 shapefile2geojson-P21:
 	- psql -U postgres -d geomdb -c "DROP TABLE p21b;"
-	find $(TMP)/P21 -name "P21-??b_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p21b
+	find $(TMP)/P21 -name "P21-12b_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p21b
 	ogr2ogr -f GeoJSON $(TMP)/P21-12b_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p21b
 
 # 警察署
