@@ -10,7 +10,7 @@
 |  [燃料給油所](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P07-2016.html)  |  P07  |  JGD2011 / （B, L）  |  ○  |  −  |  TD  |
 |  [都市公園（2022年度以前）](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P13.html)  |  P13  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
 |  [消防署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P17.html)  |  P17  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルがない  |
-|  [警察署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P18.html)  |  P18  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
+|  [警察署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P18.html)  |  P18  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルがない  |
 |  [避難施設](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P20.html)  |  P20  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
 |  [上水道関連施設](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P21.html)  |  P21  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
 |  [市区町村役場](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P34.html)  |  P34  |  世界測地系（JGD2000） / （B, L）  |  ○  |  −  |  TD  |
