@@ -510,6 +510,17 @@ shapefile2geojson-P34:
 
 	ogr2ogr -f GeoJSON $(TMP)/P34-14_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p34_14
 
+# 指定緊急避難場所データ
+# https://www.gsi.go.jp/bousaichiri/hinanbasho.html#info2
+# download-gsi-hinanbasho:
+# 	mkdir -p $(DOWNLOAD)/gsi-hinanbasho
+# 	cd $(DOWNLOAD)/gsi-hinanbasho && curl -O https://www.gsi.go.jp/common/000253846.zip	
+# unzip-gsi-hinanbasho:
+# 	mkdir -p $(TMP)/gsi-hinanbasho
+# 	unzip -d $(TMP)/gsi-hinanbasho "$(DOWNLOAD)/gsi-hinanbasho/*.zip"
+csv2geojson-gsi-hinanbasho:
+	ogr2ogr -f "GeoJSON" 国土地理院-全国指定緊急避難場所データ.geojson $(TMP)/gsi-hinanbasho/全国指定緊急避難場所データ_20240708/全国指定緊急避難場所データ.csv \
+	-oo X_POSSIBLE_NAMES=経度 -oo Y_POSSIBLE_NAMES=緯度 -oo KEEP_GEOM_COLUMNS=NO
 
 snippets:
 	psql -h localhost -U postgres     
