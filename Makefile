@@ -519,7 +519,7 @@ shapefile2geojson-P34:
 # 	mkdir -p $(TMP)/gsi-hinanbasho
 # 	unzip -d $(TMP)/gsi-hinanbasho "$(DOWNLOAD)/gsi-hinanbasho/*.zip"
 csv2geojson-gsi-hinanbasho:
-	ogr2ogr -f "GeoJSON" 国土地理院-全国指定緊急避難場所データ.geojson $(TMP)/gsi-hinanbasho/全国指定緊急避難場所データ_20240708/全国指定緊急避難場所データ.csv \
+	ogr2ogr -s_srs EPSG:6668 -t_srs EPSG:4326 -f "GeoJSON" 国土地理院-全国指定緊急避難場所データ.geojson $(TMP)/gsi-hinanbasho/全国指定緊急避難場所データ_20240708/全国指定緊急避難場所データ.csv \
 	-oo X_POSSIBLE_NAMES=経度 -oo Y_POSSIBLE_NAMES=緯度 -oo KEEP_GEOM_COLUMNS=NO
 
 snippets:
