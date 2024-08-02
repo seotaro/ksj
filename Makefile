@@ -515,53 +515,17 @@ unzip-P17:
 	unzip -d $(TMP)/P17 "$(DOWNLOAD)/P17/*.zip"
 shapefile2geojson-P17:
 	- psql -U postgres -d geomdb -c "DROP TABLE p17;"
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres"         $(TMP)/P17/P17-12_01_FireStation.shp -nln p17 -lco PRECISION=NO -lco "COLUMN_TYPES=p17_001=VARCHAR(255)"
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_02_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_03_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_04_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_05_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_06_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_07_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_08_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_09_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_10_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_11_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_12_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_13_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_14_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_15_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_16_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_17_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_18_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_19_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_20_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_21_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_22_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_23_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_24_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_25_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_26_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_27_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_28_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_29_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_30_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_31_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_32_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_33_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_34_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_35_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_36_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_37_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_38_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_39_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_40_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_41_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_42_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_43_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_44_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_45_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_46_FireStation.shp -nln p17
-	ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:6668 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P17/P17-12_47_FireStation.shp -nln p17
+
+	@for prefecture in $(PREFECTURES); do \
+		file=$(TMP)/P17/P17-12_$${prefecture}_FireStation.shp; \
+		echo $${file}; \
+		if [ "$${prefecture}" = "01" ]; then \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p17 -lco "COLUMN_TYPES=p17_001=VARCHAR(255),p17_004=VARCHAR(255)"; \
+			continue; \
+		fi; \
+		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p17; \
+	done
+
 	ogr2ogr -f GeoJSON $(TMP)/P17-12_all_FireStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p17
 
 snippets:
