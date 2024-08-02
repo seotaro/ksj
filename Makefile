@@ -159,10 +159,10 @@ shapefile2geojson-P07:
 		file=$(TMP)/P07/P07-15_$${prefecture}.shp; \
 		echo $${file}; \
 		if [ "$${prefecture}" = "01" ]; then \
-			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p07 -lco "COLUMN_TYPES=p07_002=VARCHAR(255)"; \
+			ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p07 -lco "COLUMN_TYPES=p07_002=VARCHAR(255)"; \
 			continue; \
 		fi; \
-		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p07; \
+		ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p07; \
 	done
 
 	ogr2ogr -f GeoJSON $(TMP)/P07-15_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p07
