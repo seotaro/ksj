@@ -389,6 +389,10 @@ download-P21:
 unzip-P21:
 	mkdir -p $(TMP)/P21
 	unzip -d $(TMP)/P21 "$(DOWNLOAD)/P21/*.zip"
+shapefile2geojson-P21:
+	- psql -U postgres -d geomdb -c "DROP TABLE p21b;"
+	find $(TMP)/P21 -name "P21-??b_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p21b
+	ogr2ogr -f GeoJSON $(TMP)/P21-12b_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p21b
 
 # 警察署
 # https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P18.html
@@ -445,19 +449,19 @@ unzip-P18:
 	mkdir -p $(TMP)/P18
 	unzip -d $(TMP)/P18 "$(DOWNLOAD)/P18/*.zip"
 shapefile2geojson-P18:
-	- psql -U postgres -d geomdb -c "DROP TABLE p18;"
+	- psql -U postgres -d geomdb -c "DROP TABLE p18policestation;"
 
 	@for prefecture in $(PREFECTURES); do \
 		file=$(TMP)/P18/P18-12_$${prefecture}_PoliceStation.shp; \
 		echo $${file}; \
 		if [ "$${prefecture}" = "01" ]; then \
-			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p18 -lco "COLUMN_TYPES=p18_001=VARCHAR(255),p18_004=VARCHAR(255)"; \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p18policestation -lco "COLUMN_TYPES=p18_001=VARCHAR(255),p18_004=VARCHAR(255)"; \
 			continue; \
 		fi; \
-		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p18; \
+		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p18policestation; \
 	done
 
-	ogr2ogr -f GeoJSON $(TMP)/P18-12_all_PoliceStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p18
+	ogr2ogr -f GeoJSON $(TMP)/P18-12_all_PoliceStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p18policestation
 
 # 消防署
 # https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P17.html
@@ -514,19 +518,19 @@ unzip-P17:
 	mkdir -p $(TMP)/P17
 	unzip -d $(TMP)/P17 "$(DOWNLOAD)/P17/*.zip"
 shapefile2geojson-P17:
-	- psql -U postgres -d geomdb -c "DROP TABLE p17;"
+	- psql -U postgres -d geomdb -c "DROP TABLE p17firestation;"
 
 	@for prefecture in $(PREFECTURES); do \
 		file=$(TMP)/P17/P17-12_$${prefecture}_FireStation.shp; \
 		echo $${file}; \
 		if [ "$${prefecture}" = "01" ]; then \
-			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p17 -lco "COLUMN_TYPES=p17_001=VARCHAR(255),p17_004=VARCHAR(255)"; \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p17firestation -lco "COLUMN_TYPES=p17_001=VARCHAR(255),p17_004=VARCHAR(255)"; \
 			continue; \
 		fi; \
-		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p17; \
+		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p17firestation; \
 	done
 
-	ogr2ogr -f GeoJSON $(TMP)/P17-12_all_FireStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p17
+	ogr2ogr -f GeoJSON $(TMP)/P17-12_all_FireStation.geojson PG:"host=localhost user=postgres dbname=geomdb" p17firestation
 
 snippets:
 	psql -h localhost -U postgres     
