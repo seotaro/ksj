@@ -4,6 +4,8 @@ HOSTING:=docs
 
 HOSTING_BUCKET := vector-tile
 
+PREFECTURES := 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47
+
 n03:
 	# インポート
 	psql -U postgres geomdb -f drop-tables.sql
@@ -316,6 +318,21 @@ download-P13:
 unzip-P13:
 	mkdir -p $(TMP)/P13
 	unzip -d $(TMP)/P13 "$(DOWNLOAD)/P13/*.zip"
+shapefile2geojson-P13:
+	- psql -U postgres -d geomdb -c "DROP TABLE p13;"
+	
+	@for prefecture in $(PREFECTURES); do \
+		file=$(TMP)/P13/P13-11_$${prefecture}.shp; \
+		echo $${file}; \
+		if [ "$${prefecture}" = "01" ]; then \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p13 -lco PRECISION=NO -lco "COLUMN_TYPES=p13_006=VARCHAR(255)"; \
+			continue; \
+		fi; \
+		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p13; \
+	done
+	
+	ogr2ogr -f GeoJSON $(TMP)/P13-11_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p13
+
 
 
 # 上水道関連施設 ※ 非商用
