@@ -325,7 +325,7 @@ shapefile2geojson-P13:
 		file=$(TMP)/P13/P13-11_$${prefecture}.shp; \
 		echo $${file}; \
 		if [ "$${prefecture}" = "01" ]; then \
-			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p13 -lco PRECISION=NO -lco "COLUMN_TYPES=p13_006=VARCHAR(255)"; \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p13 -lco "COLUMN_TYPES=p13_001=VARCHAR(255),p13_002=VARCHAR(255),p13_003=VARCHAR(255),p13_005=VARCHAR(255),p13_006=VARCHAR(255)"; \
 			continue; \
 		fi; \
 		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p13; \
