@@ -154,53 +154,17 @@ unzip-P07:
 	unzip -d $(TMP)/P07 "$(DOWNLOAD)/P07/*.zip"
 shapefile2geojson-P07:
 	- psql -U postgres -d geomdb -c "DROP TABLE p07;"
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres"         $(TMP)/P07/P07-15_01.shp -nln p07 -lco PRECISION=NO -lco "COLUMN_TYPES=p07_002=VARCHAR(255)"
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_02.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_03.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_04.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_05.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_06.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_07.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_08.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_09.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_10.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_11.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_12.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_13.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_14.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_15.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_16.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_17.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_18.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_19.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_20.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_21.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_22.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_23.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_24.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_25.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_26.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_27.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_28.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_29.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_30.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_31.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_32.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_33.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_34.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_35.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_36.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_37.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_38.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_39.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_40.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_41.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_42.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_43.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_44.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_45.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_46.shp -nln p07
-	ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $(TMP)/P07/P07-15_47.shp -nln p07
+
+	@for prefecture in $(PREFECTURES); do \
+		file=$(TMP)/P07/P07-15_$${prefecture}.shp; \
+		echo $${file}; \
+		if [ "$${prefecture}" = "01" ]; then \
+			ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $${file} -nln p07 -lco "COLUMN_TYPES=p07_002=VARCHAR(255)"; \
+			continue; \
+		fi; \
+		ogr2ogr -oo ENCODING=CP932 -s_srs EPSG:4612 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append $${file} -nln p07; \
+	done
+
 	ogr2ogr -f GeoJSON $(TMP)/P07-15_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p07
 
 # 避難施設データ
@@ -259,7 +223,7 @@ unzip-P20:
 	unzip -d $(TMP)/P20 "$(DOWNLOAD)/P20/*.zip"
 shapefile2geojson-P20:
 	- psql -U postgres -d geomdb -c "DROP TABLE p20;"
-	find $(TMP)/P20 -name "*.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p20
+	find $(TMP)/P20 -name "P20-??_??.shp" -print0 | xargs -0 -I {} ogr2ogr -oo ENCODING=CP932 -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" -append {} -nln p20
 	ogr2ogr -f GeoJSON $(TMP)/P20-12_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p20
 
 
