@@ -5,14 +5,14 @@
 
 |  データ  |  識別子  |  座標系  |  ShapeFile  |  GeoJSON  |  メモ  |
 | ---- | ---- | ---- | ---- | ---- | ---- |
-|  [鉄道](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html)  |  N02  |  JGD2011 / （B, L）  |  ○  |  ○  |  GeoJSONはShift-JIS  |
-|  [医療機関](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P04-2020.html)  |  P04  |  JGD2011 / （B, L）  |  ○  |  ○  |  TD  |
+|  [鉄道](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html)  |  N02  |  JGD2011 / （B, L）  |  ○  |  ○  |  GeoJSONはShift-JIS\n駅がポイントではなくLineString  |
+|  [医療機関](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P04-2020.html)  |  P04  |  JGD2011 / （B, L）  |  ○  |  ○  |  全国のGeoJSONあり  |
 |  [燃料給油所](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P07-2016.html)  |  P07  |  JGD2011 / （B, L）  |  ○  |  −  |  TD  |
-|  [都市公園（2022年度以前）](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P13.html)  |  P13  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
-|  [消防署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P17.html)  |  P17  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルがない  |
-|  [警察署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P18.html)  |  P18  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルがない  |
+|  [都市公園（2022年度以前）](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P13.html)  |  P13  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルなし  |
+|  [消防署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P17.html)  |  P17  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルなし\n管轄ポリゴンあり  |
+|  [警察署](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P18.html)  |  P18  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルなし\n管轄ポリゴンあり  |
 |  [避難施設](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P20.html)  |  P20  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
-|  [上水道関連施設](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P21.html)  |  P21  |  JGD2000 / （B, L）  |  ○  |  −  |  TD  |
+|  [上水道関連施設](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P21.html)  |  P21  |  JGD2000 / （B, L）  |  ○  |  −  |  prjファイルなし\n管轄ポリゴンあり  |
 |  [市区町村役場](https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P34.html)  |  P34  |  世界測地系（JGD2000） / （B, L）  |  ○  |  −  |  TD  |
 |  TD  |  TD  |  TD  |  TD  |  TD  |  TD  |
 
@@ -64,3 +64,15 @@ shapefileのみ
 shapefile の文字コードがxxx, 文字化け
 
 ## 鉄道（ライン） (中に駅のデータstation.shpあり) ※ 商用利用可能
+
+<https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html>
+
+駅データのみ利用。
+駅がLineString。
+鉄道区分（N02_001）,事業者種別（N02_002）,路線名（N02_003）,運営会社（N02_004）,駅名（N02_005）,駅コード（N02_005c）でグルーピングして重心を取った。
+
+## 国土地理院-全国指定緊急避難場所データ.geojson
+
+<https://www.gsi.go.jp/bousaichiri/hinanbasho.html#info2>
+
+<https://www.gsi.go.jp/common/000253846.zip>

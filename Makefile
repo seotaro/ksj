@@ -106,6 +106,23 @@ shapefile2geojson-P07:
 	ogr2ogr -f GeoJSON $(TMP)/P07-15_all.geojson PG:"host=localhost user=postgres dbname=geomdb" p07_15
 
 
+# 鉄道
+# https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N02-2023.html
+shapefile2geojson-N02:
+	- psql -U postgres -d geomdb -c "DROP TABLE n02_station_23_tmp, n02_station_23;"
+
+	ogr2ogr -t_srs EPSG:4326 -f "PostgreSQL" PG:"host=localhost dbname=geomdb user=postgres" $(TMP)/N02/utf8/N02-23_Station.geojson -nln n02_station_23_tmp
+
+	psql -U postgres -d geomdb -c "\
+CREATE TABLE n02_station_23 AS \
+SELECT  n02_001,n02_002,n02_003,n02_004,n02_005,n02_005c, ST_Centroid(ST_Collect(wkb_geometry)) AS geometry \
+FROM n02_station_23_tmp \
+GROUP BY n02_001,n02_002,n02_003,n02_004,n02_005,n02_005c \
+ORDER BY n02_005c; \
+	"
+
+	ogr2ogr -f GeoJSON $(TMP)/N02-23_all.geojson PG:"host=localhost user=postgres dbname=geomdb" n02_station_23
+
 
 # 都市公園データ
 # https://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-P13.html
