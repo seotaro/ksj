@@ -115,11 +115,17 @@ shapefile2geojson-N02:
 
 	psql -U postgres -d geomdb -c "\
 CREATE TABLE n02_station_23 AS \
-SELECT  n02_001,n02_002,n02_003,n02_004,n02_005,n02_005c, ST_Centroid(ST_Collect(wkb_geometry)) AS geometry \
-FROM n02_station_23_tmp \
-GROUP BY n02_001,n02_002,n02_003,n02_004,n02_005,n02_005c \
-ORDER BY n02_005c; \
-	"
+SELECT t1.n02_005, t1.n02_005c, ST_Centroid(ST_Collect(t1.wkb_geometry)) AS geometry \
+FROM n02_station_23_tmp AS t1 \
+JOIN (\
+    SELECT n02_005g \
+    FROM n02_station_23_tmp \
+    GROUP BY n02_005g\
+) AS t2 \
+ON t1.n02_005c = t2.n02_005g \
+GROUP BY t1.n02_005, t1.n02_005c \
+ORDER BY t1.n02_005c; \
+"
 
 	ogr2ogr -f GeoJSON $(TMP)/N02-23_all.geojson PG:"host=localhost user=postgres dbname=geomdb" n02_station_23
 
@@ -536,7 +542,7 @@ shapefile2geojson-P34:
 # 	mkdir -p $(TMP)/gsi-hinanbasho
 # 	unzip -d $(TMP)/gsi-hinanbasho "$(DOWNLOAD)/gsi-hinanbasho/*.zip"
 csv2geojson-gsi-hinanbasho:
-	ogr2ogr -s_srs EPSG:6668 -t_srs EPSG:4326 -f "GeoJSON" 国土地理院-全国指定緊急避難場所データ.geojson $(TMP)/gsi-hinanbasho/全国指定緊急避難場所データ_20240708/全国指定緊急避難場所データ.csv \
+	ogr2ogr -s_srs EPSG:6668 -t_srs EPSG:4326 -f "GeoJSON" 国土地理院-全国指定緊急避難場所データ.geojson $(TMP)/gsi-hinanbasho/全国指定緊急避難場所データ_20240801/全国指定緊急避難場所データ.csv \
 	-oo X_POSSIBLE_NAMES=経度 -oo Y_POSSIBLE_NAMES=緯度 -oo KEEP_GEOM_COLUMNS=NO
 
 snippets:
